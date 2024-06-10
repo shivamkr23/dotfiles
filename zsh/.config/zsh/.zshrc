@@ -77,7 +77,7 @@ zstyle ':omz:update' frequency 1
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions asdf autoupdate)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions autoupdate)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -189,3 +189,12 @@ alias grep="rg"
 alias find="fd"
 alias cat="bat"
 alias cls="clear"
+
+# NVM
+source /usr/share/nvm/init-nvm.sh
+
+# GO
+export PATH="$HOME/go/bin:$PATH"
+
+# CARGO
+export PATH="$HOME/.cargo/bin:$PATH"
