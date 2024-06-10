@@ -15,9 +15,9 @@ keymap.set("n", "x", '"_x')
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", '"_dP')
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
-vim.keymap.set({"n", "v"}, "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 --keywordprg
 keymap.set("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
@@ -76,7 +76,7 @@ keymap.set("n", "[l", "<cmd>lprev<CR>zz")
 keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
-keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theshivam/lazy.lua<CR>");
+keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/theshivam/lazy.lua<CR>")
 keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end)
