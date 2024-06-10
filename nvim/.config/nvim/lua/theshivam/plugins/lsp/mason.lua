@@ -26,6 +26,11 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
+				"angularls",
+				"ansiblels",
+				"gopls",
+				"clangd",
+				"bashls",
 				"tsserver",
 				"html",
 				"cssls",
@@ -35,6 +40,12 @@ return {
 				"graphql",
 				"emmet_ls",
 				"pyright",
+				"volar",
+				"rust_analyzer",
+				"marksman",
+				"jsonls",
+				"jinja_lsp",
+				"grammerly",
 			},
 		})
 
