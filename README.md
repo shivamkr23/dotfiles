@@ -1,0 +1,2 @@
+# dotfiles
+install with stow
