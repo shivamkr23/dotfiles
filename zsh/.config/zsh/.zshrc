@@ -198,3 +198,11 @@ export PATH="$HOME/go/bin:$PATH"
 
 # CARGO
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/king/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

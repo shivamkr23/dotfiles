@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+sh -c "yay"
+sh -c "yarn global upgrade"
+sh -c "pnpm up -g"
+sh -c "go-global-update"
+sh -c "cargo install-update --all"
+sh -c "pipx upgrade-all --global"
