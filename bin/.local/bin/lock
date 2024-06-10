@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bash -c "i3lock -i ~/.config/background/i3lock.png"

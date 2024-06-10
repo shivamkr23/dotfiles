@@ -1,0 +1,30 @@
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[ghq]
+	root = ~/clone/ghq
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[core]
+	pager = delta
+	editor = nvim
+[interactive]
+	diffFilter = delta --color-only
+[include]
+    path = ~/.config/delta/themes/catppuccin.gitconfig
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	side-by-side = true
+    features = catppuccin-mocha
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[user]
+	email = shivamkr.kr23@gmail.com
+	name = Shivam Kumar
