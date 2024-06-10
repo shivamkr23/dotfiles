@@ -110,6 +110,9 @@ export EDITOR='nvim'
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
+bindkey -v
+#set -o vi
+bindkey -M vicmd 'vv' edit-command-line
 ## FZF BEGIN
 eval "$(fzf --zsh)"
 
@@ -134,7 +137,7 @@ _fzf_compgen_dir() {
 source ~/clone/ghq/github.com/junegunn/fzf-git.sh/fzf-git.sh
 
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=bg+:#313245,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
@@ -152,8 +155,6 @@ _fzf_comprun() {
 
   case "$command" in
     cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    z)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    zi)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
     export|unset) fzf --preview "eval 'echo ${}'"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -181,9 +182,6 @@ alias cd="z"
 source "$HOME/.config/lf/lfcd.sh"
 alias lf="lfub"
 
-bindkey -v
-#set -o vi
-bindkey -M vicmd 'vv' edit-command-line
 bindkey -s '^o' 'lfcd\n'  # zsh
 
 alias grep="rg"
