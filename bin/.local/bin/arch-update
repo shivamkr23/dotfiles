@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
-sh -c "yay"
-sh -c "yarn global upgrade"
-sh -c "pnpm up -g"
-sh -c "go-global-update"
-sh -c "cargo install-update --all"
-sh -c "pipx upgrade-all --global"
+function gohome() {
+    "cd"
+}
+
+gohome
+bash -c "yay"
+bash -c "yarn global upgrade"
+bash -c "pnpm up -g"
+bash -c "go-global-update"
+bash -c "cargo install-update --all"
+bash -c "pipx upgrade-all --global"
