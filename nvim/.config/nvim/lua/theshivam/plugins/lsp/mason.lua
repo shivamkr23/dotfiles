@@ -46,7 +46,6 @@ return {
 				"marksman",
 				"jsonls",
 				"jinja_lsp",
-				"grammarly",
 			},
 		})
 
