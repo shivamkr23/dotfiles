@@ -185,9 +185,6 @@ alias lf="lfub"
 bindkey -s '^o' 'lfcd\n'  # zsh
 bindkey -s '^l' 'lazygit\n' #zsh
 
-alias grep="rg"
-alias find="fd"
-alias cat="bat"
 alias cls="clear"
 
 # NVM
