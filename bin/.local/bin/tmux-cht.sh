@@ -8,7 +8,7 @@ read -p "Enter Query: " query
 
 $tmux_running = $(pgrep tmux)
 if [[ -z $tmux_running ]]; then
-    tmux new-session -ds "temp"
+    tmux new-session -ds "cheat"
 fi
 
 if grep -qs "$selected" ~/.local/scripts/tmux-cht-languages; then
