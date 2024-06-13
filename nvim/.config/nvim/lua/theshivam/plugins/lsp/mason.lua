@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"mfussenegger/nvim-jdtls",
 	},
 	config = function()
 		-- import mason
@@ -46,6 +47,9 @@ return {
 				"marksman",
 				"jsonls",
 				"jinja_lsp",
+				"jdtls",
+                "ruby_lsp",
+                "intelephense",
 			},
 		})
 
