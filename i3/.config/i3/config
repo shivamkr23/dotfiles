@@ -159,7 +159,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+x [urgent=latest] focus
 bindsym $mod+Tab workspace next
+bindsym $mod+bracketleft workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Shift+bracketleft workspace prev
 for_window [window_role="pop-up"] floating enable
 bindsym $mod+b workspace back_and_forth
 

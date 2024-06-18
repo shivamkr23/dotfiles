@@ -99,11 +99,31 @@ local config = {
 		extendedClientCapabilities = extendedClientCapabilities,
 	},
 }
+config.on_init = function(client, _)
+	client.notify("workspace/didChangeConfiguration", { settings = config.settings })
+end
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.java" },
 	callback = function()
 		local _, _ = pcall(vim.lsp.codelens.refresh)
+	end,
+})
+
+vim.api.nvim_create_autocmd("JdtlsAttach", {
+	group = vim.api.nvim_create_augroup("JdtlsLspConfig", {}),
+	callback = function(ev)
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf, silent = true }
+
+		vim.keymap.set("n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+		vim.keymap.set("n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
+		vim.keymap.set("v", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+		vim.keymap.set("n", "crc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
+		vim.keymap.set("v", "crc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
+		vim.keymap.set("v", "crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts) -- set keybinds
+		vim.keymap.set("n", "crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts) -- set keybinds
 	end,
 })
 

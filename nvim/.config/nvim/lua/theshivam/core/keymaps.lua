@@ -39,7 +39,7 @@ keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 keymap.set("n", "<leader>bo", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete Buffer and Window" })
-keymap.set("n", "<leader>bt", "<cmd>Telescope buffers<cr>", { desc = "Delete Buffer and Window" })
+keymap.set("n", "<leader>bt", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffer" })
 
 -- better indenting
 keymap.set("v", "<", "<gv")

@@ -225,3 +225,6 @@ unset __conda_setup
 ##GEM
 export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$PATH:$GEM_HOME/bin"
+
+## FLUTTER
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"

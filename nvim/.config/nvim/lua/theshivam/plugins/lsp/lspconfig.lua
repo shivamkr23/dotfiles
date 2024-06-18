@@ -4,8 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
-		{ "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim", opts = { notification = { window = { winblend = 0 } } } },
 	},
 	config = function()
 		-- import lspconfig plugin
@@ -16,6 +15,8 @@ return {
 
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+		require("lspconfig.ui.windows").default_options.border = "rounded"
 
 		local keymap = vim.keymap -- for conciseness
 
@@ -49,19 +50,27 @@ return {
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
 				opts.desc = "Show buffer diagnostics"
-				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+				keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
 				opts.desc = "Show line diagnostics"
-				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+				keymap.set("n", "<leader>ld", function()
+					vim.diagnostic.open_float()
+				end, opts) -- show diagnostics for line
 
 				opts.desc = "Go to previous diagnostic"
-				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+				keymap.set("n", "[d", function()
+					vim.diagnostic.goto_prev()
+				end, opts) -- jump to previous diagnostic in buffer
 
 				opts.desc = "Go to next diagnostic"
-				keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+				keymap.set("n", "]d", function()
+					vim.dianostic.goto_next()
+				end, opts) -- jump to next diagnostic in buffer
 
 				opts.desc = "Show documentation for what is under cursor"
-				keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+				keymap.set("n", "K", function()
+					vim.lsp.buf.hover()
+				end, opts) -- show documentation for what is under cursor
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -101,7 +110,7 @@ return {
 				-- configure svelte server
 				lspconfig["svelte"].setup({
 					capabilities = capabilities,
-					on_attach = function(client, bufnr)
+					on_attach = function(client, _)
 						vim.api.nvim_create_autocmd("BufWritePost", {
 							pattern = { "*.js", "*.ts" },
 							callback = function(ctx)
@@ -143,7 +152,7 @@ return {
 						Lua = {
 							-- make the language server recognize "vim" global
 							diagnostics = {
-								globals = { "vim" },
+								globals = { "vim", "nvim_bufferline" },
 							},
 							completion = {
 								callSnippet = "Replace",

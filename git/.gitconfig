@@ -28,3 +28,5 @@
 [user]
 	email = shivamkr.kr23@gmail.com
 	name = Shivam Kumar
+[rerere]
+	enabled = true
